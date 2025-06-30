@@ -19,8 +19,10 @@
 
         private void LoadBooks()
         {
-            // TODO: Implement LoadBooks to get books from a file
-            throw new NotImplementedException();
+            using (reader)
+            {
+
+            }
         }
 
         private void Save()
