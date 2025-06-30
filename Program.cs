@@ -17,8 +17,21 @@
         }
         private static void DisplayMenu()
         {
-            // TODO: Implement display menu
-            throw new NotImplementedException();
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+
+            Console.WriteLine("=========================");
+            Console.WriteLine("★       М Е Н Ю        ★");
+            Console.WriteLine("=========================");
+            Console.WriteLine();
+            Console.WriteLine("1. ▶ Добавяне на нова книга");
+            Console.WriteLine("2. ▶ Заемане на книга");
+            Console.WriteLine("3. ▶ Връщане на книга");
+            Console.WriteLine("4. ▶ Справка за всички налични книги");
+            Console.WriteLine("5. ▶ Справка за заетите книги");
+            Console.WriteLine();
+            Console.WriteLine("x. ❌ Изход");
+            Console.WriteLine("=========================");
         }
     }
 }
