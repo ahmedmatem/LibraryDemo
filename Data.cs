@@ -1,5 +1,8 @@
 ﻿namespace LibraryDemo
 {
+    using System.Text.Json;
+    using static Constants; 
+
     public class Data
     {
         public List<Book> Books { get; private set; }
@@ -25,8 +28,13 @@
 
         private void Save()
         {
-            // TODO: Implement Save to file
-            throw new NotImplementedException();
+          
+            StreamWriter writer = new StreamWriter(dataPath);
+            using (writer)
+            {
+                string jsonData = JsonSerializer.Serialize(Books);
+                writer.WriteLine(jsonData);
+            }
         }
     }
 }
