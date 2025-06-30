@@ -2,6 +2,8 @@
 {
     public class Program
     {
+        private static Data data = new Data();
+
         static void Main(string[] args)
         {
             DisplayMenu();
@@ -11,10 +13,33 @@
             {
                 switch (choice) 
                 {
-                    case
+                    case "1":
+                        // Add a new book
+                        Book newBook = DisplayAddNewBook();
+                        data.AddBook(newBook);
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        break;
+                    default:
+                        break;
                 }
             }
+
+            // End 
+            Environment.Exit(0);
         }
+
+        private static Book DisplayAddNewBook()
+        {
+            throw new NotImplementedException();
+        }
+
         private static void DisplayMenu()
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
