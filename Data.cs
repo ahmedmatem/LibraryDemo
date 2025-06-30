@@ -24,8 +24,10 @@
         {
             using (reader)
             {
-
+                string jsonData = reader.ReadToEnd();
+                Books = JsonSerializer.Deserialize<List<Book>>(jsonData)!;
             }
+            Books ??= new List<Book>();
         }
 
         private void Save()
