@@ -22,8 +22,12 @@
 
         private void LoadBooks()
         {
-            // TODO: Implement LoadBooks to get books from a file
-            throw new NotImplementedException();
+            using (reader)
+            {
+                string jsonData = reader.ReadToEnd();
+                Books = JsonSerializer.Deserialize<List<Book>>(jsonData)!;
+            }
+            Books ??= new List<Book>();
         }
 
         private void Save()
