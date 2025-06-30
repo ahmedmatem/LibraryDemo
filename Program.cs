@@ -5,6 +5,15 @@
         static void Main(string[] args)
         {
             DisplayMenu();
+
+            string choice = string.Empty;
+            while((choice = Console.ReadLine()!.ToLower()) != "x")
+            {
+                switch (choice) 
+                {
+                    case
+                }
+            }
         }
         private static void DisplayMenu()
         {
