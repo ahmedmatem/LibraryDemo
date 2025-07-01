@@ -66,7 +66,15 @@
 
         private static void DisplayBorrowABook(List<Book> books)
         {
-            throw new NotImplementedException();
+            Console.Clear();
+
+            Console.WriteLine($"Списък на всички незаети книги");
+            List<Book> allAvailabelBooks = books.Where(b => b.IsAvailable).ToList();
+            int i = 1;
+            foreach (var book in allAvailabelBooks)
+            {
+                Console.WriteLine($"[{i++:d3}] {book.Title}");
+            }
         }
 
         private static Book DisplayAddNewBook()
