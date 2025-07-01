@@ -20,12 +20,17 @@
 
         private void LoadBooks()
         {
+            Books = new List<Book>();
+            reader = new StreamReader(dataPath);
             using (reader)
             {
                 string jsonData = reader.ReadToEnd();
-                Books = JsonSerializer.Deserialize<List<Book>>(jsonData)!;
+                if(!string.IsNullOrEmpty(jsonData))
+                {
+                    Books = JsonSerializer.Deserialize<List<Book>>(jsonData)!;
+                }                
             }
-            Books ??= new List<Book>();
+            
         }
 
         public void Save()
