@@ -60,7 +60,7 @@
             Console.WriteLine();
             foreach (Book book in books)
             {
-                Console.WriteLine($"▶ {book.Title}");
+                Console.WriteLine($"▶ {book}");
             }
         }
 
@@ -80,8 +80,20 @@
             int i = 1;
             foreach (var book in allAvailabelBooks)
             {
-                Console.WriteLine($"[{i++:d3}] {book.Title}");
+                Console.WriteLine($"{i++:d3}. {book}");
             }
+            Console.WriteLine();
+            Console.Write("Въведи номер на избрана книга: ");
+            int selectedBookIndex = int.Parse(Console.ReadLine());
+            //TODO: validate book selected index
+            Console.Write("Въведи лично име: ");
+            string borrowerName = Console.ReadLine();
+            books[selectedBookIndex - 1].IsAvailable = false;
+            books[selectedBookIndex - 1].Borrower = borrowerName;
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Заехте успешно книга");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private static void BackToMenu()

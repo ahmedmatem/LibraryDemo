@@ -53,6 +53,11 @@
             Price = price;
             IsAvailable = true;
         }
+
+        public override string ToString()
+        {
+            return $"{Title} - {Author}, {Year}";
+        }
     }
 
 }

@@ -1,1 +1,1 @@
-[{"ISBN":"89f8ceef-fec1-484e-a1fc-f7e0ec6f0198","Title":"Love","Author":"Elif Shafak","Year":2003,"Price":23.45,"IsAvailable":true,"Borrower":""}]
+[{"ISBN":"89f8ceef-fec1-484e-a1fc-f7e0ec6f0198","Title":"Love","Author":"Elif Shafak","Year":2003,"Price":23.45,"IsAvailable":false,"Borrower":"Ahmed"},{"ISBN":"662c7d31-69b3-4fc6-83e9-117810f1a4f5","Title":"Stargate","Author":"John Mimo","Year":1945,"Price":105.78,"IsAvailable":true,"Borrower":""}]
