@@ -49,7 +49,14 @@
 
         private static void DisplayAllBooks(List<Book> books)
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("Всички книги");
+            Console.WriteLine("============");
+            Console.WriteLine();
+            foreach (Book book in books)
+            {
+                Console.WriteLine($"▶ {book.Title}");
+            }
         }
 
         private static void DisplayBorrowedBooks(List<Book> allBorrowedBooks)
@@ -64,7 +71,19 @@
 
         private static Book DisplayAddNewBook()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("Добавяне на нова книга");
+            Console.WriteLine("======================");
+            Console.WriteLine();
+            Console.Write("Въведи заглавие: ");
+            string title = Console.ReadLine();
+            Console.Write("Въведи автор: ");
+            string author = Console.ReadLine();
+            Console.Write("Въведи година: ");
+            int year = int.Parse(Console.ReadLine());
+            Console.Write("Въведи цена: ");
+            decimal price = decimal.Parse(Console.ReadLine());
+            return new Book(title, author,year,price);
         }
 
         private static void DisplayMenu()
@@ -84,6 +103,7 @@
             Console.WriteLine();
             Console.WriteLine("x. ❌ Изход");
             Console.WriteLine("=========================");
+            Console.Write("Твоят избор: ");
         }
     }
 }
