@@ -18,14 +18,17 @@
                         Book newBook = DisplayAddNewBook();
                         data.Books.Add(newBook);
                         data.Save();
+                        BackToMenu();
                         break;
                     case "2":
                         DisplayBorrowABook(data.Books);
                         data.Save();
+                        BackToMenu();
                         break;
                     case "3":
                         DisplayReturnBook(data.BorrowedBooks);
                         data.Save();
+                        BackToMenu();
                         break;
                     case "4":
                         DisplayAllBooks(data.Books);
@@ -36,6 +39,8 @@
                     default:
                         break;
                 }
+
+                
             }
 
             // End 
@@ -69,6 +74,8 @@
             Console.Clear();
 
             Console.WriteLine($"Списък на всички незаети книги");
+            Console.WriteLine("==============================");
+            Console.WriteLine();
             List<Book> allAvailabelBooks = books.Where(b => b.IsAvailable).ToList();
             int i = 1;
             foreach (var book in allAvailabelBooks)
@@ -77,6 +84,14 @@
             }
         }
 
+        private static void BackToMenu()
+        {
+            Console.WriteLine();
+            Console.Write("Enter обратно към меню");
+            Console.ReadLine();
+            Console.Clear();
+            DisplayMenu();
+        }
         private static Book DisplayAddNewBook()
         {
             Console.Clear();
@@ -92,6 +107,7 @@
             Console.Write("Въведи цена: ");
             decimal price = decimal.Parse(Console.ReadLine());
             return new Book(title, author,year,price);
+          
         }
 
         private static void DisplayMenu()
