@@ -9,22 +9,29 @@
             DisplayMenu();
 
             string choice = string.Empty;
-            while((choice = Console.ReadLine()!.ToLower()) != "x")
+            while ((choice = Console.ReadLine()!.ToLower()) != "x")
             {
-                switch (choice) 
+                switch (choice)
                 {
                     case "1":
                         // Add a new book
                         Book newBook = DisplayAddNewBook();
-                        data.AddBook(newBook);
+                        data.Books.Add(newBook);
+                        data.Save();
                         break;
                     case "2":
+                        DisplayBorrowABook(data.Books);
+                        data.Save();
                         break;
                     case "3":
+                        DisplayReturnBook(data.BorrowedBooks);
+                        data.Save();
                         break;
                     case "4":
+                        DisplayAllBooks(data.Books);
                         break;
                     case "5":
+                        DisplayBorrowedBooks(data.BorrowedBooks);
                         break;
                     default:
                         break;
@@ -33,6 +40,26 @@
 
             // End 
             Environment.Exit(0);
+        }
+
+        private static void DisplayReturnBook(List<Book> borrowedBooks)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void DisplayAllBooks(List<Book> books)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void DisplayBorrowedBooks(List<Book> allBorrowedBooks)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void DisplayBorrowABook(List<Book> books)
+        {
+            throw new NotImplementedException();
         }
 
         private static Book DisplayAddNewBook()

@@ -1,11 +1,13 @@
 ﻿namespace LibraryDemo
 {
+    using System;
     using System.Text.Json;
     using static Constants; 
 
     public class Data
     {
         public List<Book> Books { get; private set; }
+        public List<Book> BorrowedBooks { get; private set; }
 
         private StreamReader reader;
         private StreamWriter writer;
@@ -13,11 +15,7 @@
         public Data()
         {
             LoadBooks();
-        }
-        public void AddBook(Book newBook)
-        {
-            Books.Add(newBook);
-            Save();
+            SetAllBorrowedBooks();
         }
 
         private void LoadBooks()
@@ -30,7 +28,7 @@
             Books ??= new List<Book>();
         }
 
-        private void Save()
+        public void Save()
         {
           
             StreamWriter writer = new StreamWriter(dataPath);
@@ -39,6 +37,20 @@
                 string jsonData = JsonSerializer.Serialize(Books);
                 writer.WriteLine(jsonData);
             }
+        }
+
+        private List<Book> SetAllBorrowedBooks()
+        {
+            List<Book> allBorrowedBooks = new List<Book>();
+            foreach (var book in Books)
+            {
+                if (book.IsAvailable)
+                {
+                    allBorrowedBooks.Add(book);
+                }
+            }
+
+            return allBorrowedBooks;
         }
     }
 }
